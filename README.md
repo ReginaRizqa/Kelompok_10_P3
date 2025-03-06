@@ -1,12 +1,10 @@
 # 🌟 Toko Gohyong & Wonton 🌟
 
 ## 📂 Daftar Isi Folder
-- **Kelompok_10** 📄
+- **Fitur** 📄
   - 📘 Login.html
   - 📙 Menu.html
   - 📗 Dashboard.html
-- **Folder Basic** 📁
-  - 🔧 Codingan composer
 
 ---
 
@@ -32,7 +30,7 @@ For detailed documentation, refer to the files linked below (written in Indonesi
 ---
 
 ## 📝 Deskripsi
-This repository is the collaborative work of **Kelompok 10** for the **Toko Gohyong & Wonton**. It includes:
+This repository is the collaborative work of **Kelompok 10** for the ** Project Toko Gohyong & Wonton**. It includes:
 - 📌 Initial project documentation.
 - 📌 Database features.
 - 📌 Group project report.
