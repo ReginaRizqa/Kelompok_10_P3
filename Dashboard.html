@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Toko Gohyong & Wonton</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #343a40;
+            color: white;
+            position: fixed;
+            padding: 20px;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 15px;
+            cursor: pointer;
+        }
+        .sidebar ul li:hover {
+            background: #495057;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .card h3 {
+            margin: 10px 0;
+        }
+        .card p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Toko Gohyong & Wonton</h2>
+        <ul>
+            <li>Dashboard</li>
+            <li>Menu</li>
+            <li>Pesanan</li>
+            <li>Pelanggan</li>
+            <li>Keluar</li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h2>Dashboard</h2>
+        <p>Selamat datang di dashboard toko Gohyong & Wonton</p>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>Total Penjualan</h3>
+                <p>Rp 1.500.000</p>
+            </div>
+            <div class="card">
+                <h3>Pesanan Hari Ini</h3>
+                <p>25</p>
+            </div>
+            <div class="card">
+                <h3>Pelanggan</h3>
+                <p>120</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
