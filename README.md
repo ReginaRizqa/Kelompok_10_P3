@@ -1,4 +1,4 @@
-# 🌟 UAS Kelompok 2 🌟
+# 🌟 Toko Gohyong & Wonton 🌟
 
 ## 📂 Daftar Isi Folder
 - **Dokumen UAS** 📄
@@ -29,8 +29,7 @@ For detailed documentation, refer to the files linked below (written in Indonesi
 ## 🤝 Contributors
 | Contributor       | GitHub Profile                                  |
 |-------------------|------------------------------------------------|
-| **Adia Sandra**  | [🌐 Profile](https://github.com/sandraalmeera) |
-| **Yessica**      | [🌐 Profile](https://github.com/yesicafapa)    |
+| **SabillaAlia**      | [🌐 Profile](https://github.com/SabillaAlia)    |
 
 ---
 
