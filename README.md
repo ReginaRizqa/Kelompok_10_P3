@@ -1,10 +1,13 @@
-# 🌟 Toko Gohyong & Wonton 🌟
+**🥢Toko Gohyong & Wonton**
+Selamat datang di repository Toko Gohyong & Wonton! 🍜
+Repository ini berisi kode dan dokumentasi untuk sistem manajemen Toko Gohyong dan Wonton,
 
 ## 📂 Daftar Isi Folder
 - **Fitur** 📄
   - 📘 Login.html
   - 📙 Menu.html
   - 📗 Dashboard.html
+  - 📘 Transaksi.html
 
 ---
 
@@ -19,6 +22,8 @@ For detailed documentation, refer to the files linked below (written in Indonesi
 - 📘 [Login.html](#)
 - 📙 [Menu.html](#)
 - 📗 [Dashboard.html](#)
+- 📗 [Transaksi.html](#)
+
 
 ---
 
