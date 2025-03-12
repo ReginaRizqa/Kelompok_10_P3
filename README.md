@@ -1,4 +1,4 @@
-## 🥢 Penjualan Gohyong & Wonton
+## 🥢 Toko Gohyong & Wonton
 
 Selamat datang di repository Toko Gohyong & Wonton! 🍜
 Repository ini berisi kode dan dokumentasi untuk sistem manajemen Toko Gohyong dan Wonton,
