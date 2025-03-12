@@ -5,57 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Gohyong & Wonton</title>
     <style>
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f8f9fa;
             text-align: center;
         }
+
         header {
-            background-color: #2c3e50;
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
             color: white;
             padding: 20px;
-            font-size: 1.5em;
+            font-size: 1.8em;
+            font-weight: bold;
+            letter-spacing: 2px;
         }
+
         .menu-container {
             max-width: 800px;
             margin: 30px auto;
             background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
         }
+
         h2 {
+            color: #2c3e50;
             margin-bottom: 20px;
+            font-size: 1.8em;
         }
+
         .menu-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid #ddd;
             padding: 15px 0;
+            transition: all 0.3s ease-in-out;
         }
-        .menu-item img {
-            width: 80px;
-            height: 80px;
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item:hover {
+            background: #f1f1f1;
             border-radius: 10px;
-            object-fit: cover;
         }
+
+        .menu-item img {
+            width: 90px;
+            height: 90px;
+            border-radius: 12px;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .menu-item img:hover {
+            transform: scale(1.1);
+        }
+
         .menu-info {
             flex-grow: 1;
             text-align: left;
             margin-left: 15px;
         }
+
+        .menu-info h3 {
+            margin: 0;
+            font-size: 1.4em;
+            color: #2c3e50;
+        }
+
+        .menu-info p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 0.95em;
+        }
+
         .menu-price {
             font-weight: bold;
+            font-size: 1.2em;
             color: #28a745;
         }
+
         footer {
             margin-top: 40px;
-            padding: 20px 0;
-            background-color: #2c3e50;
+            padding: 20px;
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
             color: white;
+            font-size: 0.9em;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -84,11 +127,10 @@
                 <p class="menu-price">Rp 20.000</p>
             </div>
         </div>
-
     </div>
-    <footer>
-        <p>&copy; 2025 Toko Wonton & Gohyong</p>
-    </footer>
 
+    <footer>
+        <p>&copy; 2025 Toko Wonton & Gohyong. Semua Hak Dilindungi.</p>
+    </footer>
 </body>
 </html>
