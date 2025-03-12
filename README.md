@@ -1,7 +1,8 @@
 ## 🥢 Toko Gohyong & Wonton
 
 Selamat datang di repository Toko Gohyong & Wonton! 🍜
-Repository ini berisi kode dan dokumentasi untuk sistem manajemen Toko Gohyong dan Wonton,
+
+Repository ini berisi kode dan dokumentasi untuk sistem manajemen Toko Gohyong dan Wonton.
 
 ## 📂 Daftar Isi Folder
 - **Fitur** 📄
