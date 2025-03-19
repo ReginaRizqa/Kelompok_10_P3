@@ -9,12 +9,9 @@ Repository ini berisi kode dan dokumentasi untuk sistem manajemen Toko Gohyong d
   - 📘 Login.html
   - 📙 Menu.html
   - 📗 Dashboard.html
-  - 📘 Transaksi.html
-
----
-
-## Tech Stack
-![Database](https://img.shields.io/badge/database-MySQL-green) ![Framework](https://img.shields.io/badge/framework-Yii2-blue) ![Language](https://img.shields.io/badge/language-PHP-blue) ![Environment](https://img.shields.io/badge/environment-XAMPP-orange) ![Dependencies](https://img.shields.io/badge/dependencies-Composer-yellow)
+  - 📘 Pemesanan.html
+  - 📗 Rating.html
+  - 📙 Pelanggan.html
 
 ---
 
@@ -24,7 +21,9 @@ For detailed documentation, refer to the files linked below (written in Indonesi
 - 📘 [Login.html](#)
 - 📙 [Menu.html](#)
 - 📗 [Dashboard.html](#)
-- 📗 [Transaksi.html](#)
+- 📗 [Pemesanan.html](#)
+- 📙 [Rating.html](#)
+- 📘 [Pelanggan.html](#)
 
 
 ---
