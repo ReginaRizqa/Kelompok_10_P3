@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan Toko Wonton & Gohyong</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fdf6e3;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header {
+            background: maroon;
+            color: white;
+            padding: 20px;
+            font-size: 2em;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px auto;
+            flex-wrap: wrap;
+            max-width: 900px;
+        }
+
+        .product {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 270px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .wishlist {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: gray;
+            transition: color 0.3s;
+        }
+
+        .wishlist:hover {
+            color: red;
+        }
+
+        .product h3 {
+            margin: 15px 0 5px;
+            font-size: 1.4em;
+            color: #2c3e50;
+        }
+
+        .rating {
+            color: #f1c40f;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .product button {
+            margin-top: 15px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .product button:hover {
+            background-color: #2ecc71;
+        }
+
+        .cart {
+            margin-top: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart h2 {
+            font-size: 1.6em;
+            color: #2c3e50;
+        }
+
+        #cart-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        #cart-list li {
+            margin: 10px 0;
+            font-size: 1.1em;
+            color: #555;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quantity {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quantity button {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+
+        .quantity button:hover {
+            background: #d35400;
+        }
+
+        .cart p {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #27ae60;
+            margin-top: 10px;
+        }
+
+        #checkout-btn {
+            margin-top: 15px;
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: background 0.3s;
+        }
+
+        #checkout-btn:hover {
+            background-color: #d35400;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: maroon;
+            color: white;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🍜 Toko Wonton & Gohyong</h1>
+</header>
+
+<section class="menu">
+    <div class="product">
+        <span class="wishlist" onclick="addToWishlist('Wonton')"><i class="fa-regular fa-heart"></i></span>
+        <img src="Gambar/wonton.jpg" alt="Wonton">
+        <h3>Wonton</h3>
+        <div class="rating">⭐⭐⭐⭐☆</div>
+        <p>Pangsit lezat berisi daging ayam dan udang dengan bumbu khas.</p>
+        <p><strong>Harga: Rp 20.000</strong></p>
+        <button onclick="addToCart('Wonton', 20000)"><i class="fa-solid fa-cart-plus"></i> Tambah ke Keranjang</button>
+    </div>
+
+    <div class="product">
+        <span class="wishlist" onclick="addToWishlist('Gohyong')"><i class="fa-regular fa-heart"></i></span>
+        <img src="Gambar/gohyong.jpeg" alt="Gohyong">
+        <h3>Gohyong</h3>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p>Gohyong goreng renyah dengan isian daging cincang dan rempah.</p>
+        <p><strong>Harga: Rp 25.000</strong></p>
+        <button onclick="addToCart('Gohyong', 25000)"><i class="fa-solid fa-cart-plus"></i> Tambah ke Keranjang</button>
+    </div>
+</section>
+
+<section class="cart">
+    <h2>🛒 Keranjang Belanja</h2>
+    <ul id="cart-list"></ul>
+    <p>Total: Rp <span id="total-price">0</span></p>
+    <button id="checkout-btn" onclick="checkout()">🔄 Proses Pembayaran</button>
+</section>
+
+<footer>
+    <p>&copy; 2025 Toko Wonton & Gohyong. Semua Hak Dilindungi.</p>
+</footer>
+
+<script>
+    let cart = {};
+
+    function addToCart(item, price) {
+        if (cart[item]) {
+            cart[item].quantity++;
+        } else {
+            cart[item] = { price, quantity: 1 };
+        }
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartList = document.getElementById("cart-list");
+        const totalPrice = document.getElementById("total-price");
+        cartList.innerHTML = "";
+        let total = 0;
+
+        for (let item in cart) {
+            const { price, quantity } = cart[item];
+            total += price * quantity;
+            cartList.innerHTML += `
+                <li>${item} - Rp ${price} x ${quantity} 
+                    <span class="quantity">
+                        <button onclick="decreaseItem('${item}')">-</button>
+                        <button onclick="addToCart('${item}', ${price})">+</button>
+                    </span>
+                </li>`;
+        }
+        totalPrice.innerText = total;
+    }
+
+    function decreaseItem(item) {
+        if (cart[item].quantity > 1) {
+            cart[item].quantity--;
+        } else {
+            delete cart[item];
+        }
+        updateCart();
+    }
+
+    function checkout() {
+        alert("Terima kasih telah berbelanja!");
+    }
+</script>
+
+</body>
+</html>
