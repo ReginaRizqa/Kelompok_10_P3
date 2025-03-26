@@ -12,6 +12,8 @@ Repository ini berisi kode dan dokumentasi untuk sistem manajemen Toko Gohyong d
   - 📘 Pemesanan.html
   - 📗 Rating.html
   - 📙 Pelanggan.html
+  - 📘 Transaksi.html
+  - 📗 Wishlist.html
 
 ---
 
@@ -24,6 +26,8 @@ For detailed documentation, refer to the files linked below (written in Indonesi
 - 📗 [Pemesanan.html](#)
 - 📙 [Rating.html](#)
 - 📘 [Pelanggan.html](#)
+- 📙 [Transaksi.html](#)
+- 📗 [Wishlist.html](#)
 
 
 ---
