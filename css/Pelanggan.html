@@ -133,6 +133,36 @@
 
     window.onload = loadCustomerData;
 </script>
+<script>
+    function loadCustomerData() {
+        let username = localStorage.getItem("username");
+        let email = localStorage.getItem("email");
+        let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+        let customerList = document.getElementById("customer-list");
+        let orderList = document.getElementById("order-list");
+
+        customerList.innerHTML = "";
+        orderList.innerHTML = "";
+
+        if (username && email) {
+            customerList.innerHTML += `<tr><td>${username}</td><td>${email}</td></tr>`;
+        }
+
+        orders.forEach(order => {
+            orderList.innerHTML += `<tr><td>${order.username}</td><td>${order.items}</td><td>Rp ${order.total}</td></tr>`;
+        });
+    }
+
+    function clearData() {
+        localStorage.clear();
+        alert("Data pelanggan berhasil dihapus!");
+        location.reload();
+    }
+
+    window.onload = loadCustomerData;
+</script>
+
 
 </body>
 </html>

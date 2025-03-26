@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaksi - Toko Wonton & Gohyong</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fdf6e3;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header {
+            background: maroon;
+            color: white;
+            padding: 20px;
+            font-size: 2em;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select, button {
+            width: 100%;
+            margin-top: 5px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #e67e22;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #d35400;
+        }
+
+        .transaction-history {
+            margin-top: 20px;
+        }
+
+        .transaction-history ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .transaction-history li {
+            background: #f8f8f8;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .transaction-history span {
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📜 Transaksi Pembelian</h1>
+</header>
+
+<section class="container">
+    <h2>📝 Formulir Transaksi</h2>
+    
+    <label for="customer-name">Nama Lengkap:</label>
+    <input type="text" id="customer-name" placeholder="Masukkan nama Anda">
+    
+    <label for="customer-address">Alamat Pengiriman:</label>
+    <input type="text" id="customer-address" placeholder="Masukkan alamat">
+    
+    <label for="total-price">Total Harga (Rp):</label>
+    <input type="number" id="total-price" placeholder="Masukkan total harga">
+    
+    <label for="payment-method">Metode Pembayaran:</label>
+    <select id="payment-method">
+        <option value="">-- Pilih Metode Pembayaran --</option>
+        <option value="Transfer Bank">🏦 Transfer Bank</option>
+        <option value="E-Wallet">📱 E-Wallet</option>
+        <option value="COD">💵 Bayar di Tempat (COD)</option>
+    </select>
+
+    <button onclick="processTransaction()">✅ Proses Transaksi</button>
+</section>
+
+<section class="container transaction-history">
+    <h2>📜 Riwayat Transaksi</h2>
+    <ul id="transaction-list">
+        <li><em>Belum ada transaksi.</em></li>
+    </ul>
+</section>
+
+<script>
+    let transactions = [];
+
+    function processTransaction() {
+        let name = document.getElementById("customer-name").value.trim();
+        let address = document.getElementById("customer-address").value.trim();
+        let total = document.getElementById("total-price").value;
+        let paymentMethod = document.getElementById("payment-method").value;
+
+        if (!name || !address || !total || total <= 0 || !paymentMethod) {
+            alert("Mohon isi semua data dengan benar!");
+            return;
+        }
+
+        let transaction = { name, address, total, paymentMethod };
+        transactions.push(transaction);
+        
+        updateTransactionHistory();
+
+        alert("Transaksi berhasil!");
+
+        // Reset input form
+        document.getElementById("customer-name").value = "";
+        document.getElementById("customer-address").value = "";
+        document.getElementById("total-price").value = "";
+        document.getElementById("payment-method").value = "";
+    }
+
+    function updateTransactionHistory() {
+        let transactionList = document.getElementById("transaction-list");
+        transactionList.innerHTML = ""; // Kosongkan daftar sebelum memperbarui
+
+        transactions.forEach((t, index) => {
+            transactionList.innerHTML += `
+                <li>
+                    <span>Transaksi ${index + 1}</span>
+                    👤 ${t.name} - Rp ${parseInt(t.total).toLocaleString()} 
+                    <br>📍 ${t.address} 
+                    <br>💳 ${t.paymentMethod}
+                </li>
+            `;
+        });
+    }
+</script>
+
+</body>
+</html>

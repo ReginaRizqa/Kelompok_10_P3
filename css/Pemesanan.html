@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -181,15 +180,6 @@
         #checkout-btn:hover {
             background-color: #d35400;
         }
-
-        footer {
-            margin-top: 40px;
-            padding: 20px;
-            background: maroon;
-            color: white;
-            font-size: 0.9em;
-            letter-spacing: 1px;
-        }
     </style>
 </head>
 <body>
@@ -200,7 +190,9 @@
 
 <section class="menu">
     <div class="product">
-        <span class="wishlist" onclick="addToWishlist('Wonton')"><i class="fa-regular fa-heart"></i></span>
+        <span class="wishlist" onclick="toggleWishlist('Wonton', 'Gambar/wonton.jpg', this)">
+            <i class="fa-regular fa-heart"></i>
+        </span>
         <img src="Gambar/wonton.jpg" alt="Wonton">
         <h3>Wonton</h3>
         <div class="rating">⭐⭐⭐⭐☆</div>
@@ -210,7 +202,8 @@
     </div>
 
     <div class="product">
-        <span class="wishlist" onclick="addToWishlist('Gohyong')"><i class="fa-regular fa-heart"></i></span>
+        <span class="wishlist" onclick="toggleWishlist('Gohyong', 'Gambar/gohyong.jpeg', this)">
+            <i class="fa-regular fa-heart"></i></span>
         <img src="Gambar/gohyong.jpeg" alt="Gohyong">
         <h3>Gohyong</h3>
         <div class="rating">⭐⭐⭐⭐⭐</div>
@@ -226,11 +219,6 @@
     <p>Total: Rp <span id="total-price">0</span></p>
     <button id="checkout-btn" onclick="checkout()">🔄 Proses Pembayaran</button>
 </section>
-
-<footer>
-    <p>&copy; 2025 Toko Wonton & Gohyong. Semua Hak Dilindungi.</p>
-</footer>
-
 <script>
     let cart = {};
 
@@ -252,13 +240,13 @@
         for (let item in cart) {
             const { price, quantity } = cart[item];
             total += price * quantity;
-            cartList.innerHTML += `
+            cartList.innerHTML += 
                 <li>${item} - Rp ${price} x ${quantity} 
                     <span class="quantity">
                         <button onclick="decreaseItem('${item}')">-</button>
                         <button onclick="addToCart('${item}', ${price})">+</button>
                     </span>
-                </li>`;
+                </li>;
         }
         totalPrice.innerText = total;
     }
@@ -277,5 +265,51 @@
     }
 </script>
 
+<script>
+    function checkout() {
+        let username = localStorage.getItem("username");
+        if (!username) {
+            alert("Silakan login terlebih dahulu!");
+            return;
+        }
+
+        let orders = JSON.parse(localStorage.getItem("orders")) || [];
+        let orderItems = Object.keys(cart).map(item => ${item} x ${cart[item].quantity}).join(", ");
+        let total = Object.values(cart).reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+        orders.push({ username, items: orderItems, total });
+        localStorage.setItem("orders", JSON.stringify(orders));
+
+        alert("Pesanan berhasil! Terima kasih telah berbelanja.");
+        localStorage.removeItem("cart"); // Reset keranjang
+        location.reload();
+    }
+</script>
+<script>
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    function toggleWishlist(name, image, element) {
+        let index = wishlist.findIndex(item => item.name === name);
+
+        if (index === -1) {
+            wishlist.push({ name, image });
+            element.classList.add("active");
+        } else {
+            wishlist.splice(index, 1);
+            element.classList.remove("active");
+        }
+
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".wishlist").forEach(icon => {
+            let productName = icon.parentElement.querySelector("h3").innerText;
+            if (wishlist.some(item => item.name === productName)) {
+                icon.classList.add("active");
+            }
+        });
+    });
+</script>
 </body>
 </html>

@@ -130,5 +130,22 @@
         <p class="footer">Belum punya akun? <a href="#">Daftar</a></p>
     </div>
 
+    <script>
+        function login() {
+            let username = document.getElementById("username").value.trim();
+            let email = username + "@example.com"; // Simulasi email (bisa diubah jika ada input email)
+    
+            if (!username) {
+                alert("Mohon masukkan username!");
+                return;
+            }
+    
+            localStorage.setItem("username", username);
+            localStorage.setItem("email", email);
+    
+            alert("Login berhasil! Selamat datang, " + username);
+        }
+    </script>
+    
 </body>
 </html>
