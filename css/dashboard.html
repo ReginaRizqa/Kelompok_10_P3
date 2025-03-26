@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toko Gohyong & Wonton</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -48,6 +49,26 @@
             background: #495057;
             color: #ffb84d;
         }
+
+        .sidebar-icons {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 10px;
+            background: #8b0000;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-icons i {
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .sidebar-icons i:hover {
+            color: #ffb84d;
+        }
+
 
         /* Content Area */
         .content {
@@ -154,13 +175,19 @@
     <div class="sidebar">
         <h2>Toko Gohyong & Wonton</h2>
         <ul>
-            <li onclick="showContent('dashboard')">Dashboard</li>
+            <li onclick="showContent('dashboard') ">Dashboard</li>
             <li onclick="showContent('menu')">Menu</li>
             <li onclick="showContent('pemesanan')">Pemesanan</li>
+            <li onclick="showContent('transaksi')">Transaksi</li>
             <li onclick="showContent('pelanggan')">Pelanggan</li>
             <li onclick="showContent('rating')">Rating</li>
-            <li onclick="showContent('keluar')">Keluar</li>
+            <li onclick="showContent('login')">Login</li>
         </ul>
+
+        <div class="sidebar-icons">
+            <i class="fas fa-heart" onclick="showContent('wishlist')" title="Wishlist"></i>
+            <i class="fas fa-shopping-cart" onclick="showContent('pemesanan')" title="Keranjang"></i>
+        </div>
     </div>
 
     <!-- Content Area -->
@@ -185,45 +212,31 @@
         </div>
 
         <div id="menu" class="hidden-content">
-            <h2>Menu Gohyong & Wonton!</h2> 
-            <p>Mau makan apa hari ini?</p>
-            <p>Berikut adalah menu andalan dari Toko Gohyong & Wonton.</p>
-            <div class="card-container">
-                <div class="card">
-                    <img src="wonton.jpg" alt="Wonton">
-                    <h3>Wonton</h3>
-                    <p>Rp 10.000</p>
-                </div>
-                <div class="card">
-                    <img src="gohyong.jpg" alt="Gohyong">
-                    <h3>Gohyong</h3>
-                    <p>Rp 30.000</p>
-                </div>
-            </div>
+            <iframe id="contentFrame" src="menu.html" width="100%" height="600px" style="border: none;"></iframe>
         </div>
 
         <div id="pemesanan" class="hidden-content">
-            <h2>Pemesanan</h2>
-            <p>pesan menu disini </p>
-            <!-- Daftar Pesanan di sini -->
+            <iframe id="contentFrame" src="Pemesanan.html" width="100%" height="600px" style="border: none;"></iframe>
+        </div>
+
+        <div id="transaksi" class="hidden-content">
+            <iframe id="contentFrame" src="Transaksi.html" width="100%" height="600px" style="border: none;"></iframe>
         </div>
 
         <div id="pelanggan" class="hidden-content">
-            <h2>Pelanggan</h2>
-            <p>Informasi mengenai pelanggan yang terdaftar.</p>
-            <!-- Informasi Pelanggan di sini -->
+            <iframe id="contentFrame" src="Pelanggan.html" width="100%" height="600px" style="border: none;"></iframe>
         </div>
 
         <div id="rating" class="hidden-content">
-            <h2>Rating</h2>
-            <p>Informasi mengenai rating makanan.</p>
-            
+            <iframe id="contentFrame" src="rating.html" width="100%" height="600px" style="border: none;"></iframe> 
         </div>
 
-        <div id="keluar" class="hidden-content">
-            <h2>Keluar</h2>
-            <p>Terimakasih sudah melakukan transaksi di toko kami. Anda telah keluar dari sistem.</p>
-            <!-- Bisa menambahkan fitur logout atau halaman lain -->
+        <div id="login" class="hidden-content">
+            <iframe id="contentFrame" src="Login.html" width="100%" height="600px" style="border: none;"></iframe> 
+        </div>
+
+        <div id="wishlist" class="hidden-content">
+            <iframe id="contentFrame" src="Wishlist.html" width="100%" height="600px" style="border: none;"></iframe>
         </div>
     </div>
 
