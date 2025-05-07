@@ -132,44 +132,41 @@
     <button onclick="processTransaction()">✅ Proses Transaksi</button>
 </section>
 
-<section class="container transaction-history">
-    <h2>📜 Riwayat Transaksi</h2>
-    <ul id="transaction-list">
-        <li><em>Belum ada transaksi.</em></li>
-    </ul>
-</section>
-
 <script>
     let transactions = [];
 
     function processTransaction() {
-        let name = document.getElementById("customer-name").value.trim();
-        let address = document.getElementById("customer-address").value.trim();
-        let total = document.getElementById("total-price").value;
-        let paymentMethod = document.getElementById("payment-method").value;
+    let name = document.getElementById("customer-name").value.trim();
+    let address = document.getElementById("customer-address").value.trim();
+    let total = document.getElementById("total-price").value;
+    let paymentMethod = document.getElementById("payment-method").value;
 
-        if (!name || !address || !total || total <= 0 || !paymentMethod) {
-            alert("Mohon isi semua data dengan benar!");
-            return;
-        }
-
-        let transaction = { name, address, total, paymentMethod };
-        transactions.push(transaction);
-        
-        updateTransactionHistory();
-
-        alert("Transaksi berhasil!");
-
-        // Reset input form
-        document.getElementById("customer-name").value = "";
-        document.getElementById("customer-address").value = "";
-        document.getElementById("total-price").value = "";
-        document.getElementById("payment-method").value = "";
+    if (!name || !address || !total || total <= 0 || !paymentMethod) {
+        alert("Mohon isi semua data dengan benar!");
+        return;
     }
 
+    let transaction = { name, address, total, paymentMethod };
+
+    // Simpan ke localStorage
+    let transactions = JSON.parse(localStorage.getItem("transaksi")) || [];
+    transactions.push(transaction);
+    localStorage.setItem("transaksi", JSON.stringify(transactions));
+
+    alert("Transaksi berhasil!");
+
+    // Kosongkan form
+    document.getElementById("customer-name").value = "";
+    document.getElementById("customer-address").value = "";
+    document.getElementById("total-price").value = "";
+    document.getElementById("payment-method").value = "";
+}
+
+
     function updateTransactionHistory() {
-        let transactionList = document.getElementById("transaction-list");
-        transactionList.innerHTML = ""; // Kosongkan daftar sebelum memperbarui
+        let transactions = JSON.parse(localStorage.getItem("transaksi")) || [];
+        transactions.push(transaction);
+        localStorage.setItem("transaksi", JSON.stringify(transactions));
 
         transactions.forEach((t, index) => {
             transactionList.innerHTML += `
