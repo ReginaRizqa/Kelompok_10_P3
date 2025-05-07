@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Pemesanan Toko Wonton & Gohyong</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <style>
         * {
             margin: 0;
@@ -15,8 +16,8 @@
         body {
             background-color: #fdf6e3;
             color: #333;
-            text-align: center;
             padding: 20px;
+            text-align: center;
         }
 
         header {
@@ -25,16 +26,15 @@
             padding: 20px;
             font-size: 2em;
             font-weight: bold;
-            letter-spacing: 2px;
         }
 
         .menu {
             display: flex;
             justify-content: center;
             gap: 30px;
-            margin: 30px auto;
             flex-wrap: wrap;
             max-width: 900px;
+            margin: 30px auto;
         }
 
         .product {
@@ -43,9 +43,8 @@
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 270px;
-            text-align: center;
-            transition: transform 0.3s ease-in-out;
             position: relative;
+            transition: transform 0.3s;
         }
 
         .product:hover {
@@ -66,17 +65,15 @@
             font-size: 1.5em;
             cursor: pointer;
             color: gray;
-            transition: color 0.3s;
         }
 
-        .wishlist:hover {
+        .wishlist.active {
             color: red;
         }
 
         .product h3 {
             margin: 15px 0 5px;
             font-size: 1.4em;
-            color: #2c3e50;
         }
 
         .rating {
@@ -86,72 +83,59 @@
         }
 
         .product button {
-            margin-top: 15px;
-            background-color: #27ae60;
+            margin-top: 10px;
+            background: #27ae60;
             color: white;
             border: none;
-            padding: 12px;
-            cursor: pointer;
+            padding: 10px;
             border-radius: 8px;
+            cursor: pointer;
             font-size: 1em;
-            transition: background 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
 
         .product button:hover {
-            background-color: #2ecc71;
+            background: #2ecc71;
         }
 
         .cart {
-            margin-top: 40px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 20px;
             background: white;
+            padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .cart h2 {
-            font-size: 1.6em;
-            color: #2c3e50;
-        }
-
-        #cart-list {
-            list-style-type: none;
-            padding: 0;
-            margin-top: 15px;
+            max-width: 500px;
+            margin: 40px auto;
             text-align: left;
         }
 
+        .cart h2 {
+            text-align: center;
+        }
+
+        #cart-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
         #cart-list li {
-            margin: 10px 0;
-            font-size: 1.1em;
-            color: #555;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 10px;
         }
 
         .quantity {
             display: flex;
-            align-items: center;
-            gap: 8px;
+            gap: 5px;
         }
 
         .quantity button {
-            background: #e67e22;
-            color: white;
-            border: none;
             padding: 5px 10px;
-            cursor: pointer;
+            background: #e67e22;
+            border: none;
+            color: white;
             border-radius: 5px;
-            font-size: 1em;
-            transition: background 0.3s;
+            cursor: pointer;
         }
 
         .quantity button:hover {
@@ -159,33 +143,33 @@
         }
 
         .cart p {
-            font-size: 1.3em;
             font-weight: bold;
-            color: #27ae60;
-            margin-top: 10px;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 1.2em;
         }
 
         #checkout-btn {
-            margin-top: 15px;
-            background-color: #e67e22;
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background: #e67e22;
             color: white;
             border: none;
-            padding: 12px 20px;
-            cursor: pointer;
             border-radius: 8px;
-            font-size: 1.1em;
-            transition: background 0.3s;
+            font-size: 1em;
+            cursor: pointer;
         }
 
         #checkout-btn:hover {
-            background-color: #d35400;
+            background: #d35400;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>🍜 Toko Wonton & Gohyong</h1>
+    🍜 Toko Wonton & Gohyong
 </header>
 
 <section class="menu">
@@ -193,23 +177,22 @@
         <span class="wishlist" onclick="toggleWishlist('Wonton', 'Gambar/wonton.jpg', this)">
             <i class="fa-regular fa-heart"></i>
         </span>
-        <img src="Gambar/wonton.jpg" alt="Wonton">
+        <img src="Gambar/wonton.jpg" alt="Wonton"/>
         <h3>Wonton</h3>
         <div class="rating">⭐⭐⭐⭐☆</div>
-        <p>Pangsit lezat berisi daging ayam dan udang dengan bumbu khas.</p>
-        <p><strong>Harga: Rp 20.000</strong></p>
-        <button onclick="addToCart('Wonton', 20000)"><i class="fa-solid fa-cart-plus"></i> Tambah ke Keranjang</button>
+        <p><strong>Rp 20.000</strong></p>
+        <button onclick="addToCart('Wonton', 20000)">Tambah ke Keranjang</button>
     </div>
 
     <div class="product">
         <span class="wishlist" onclick="toggleWishlist('Gohyong', 'Gambar/gohyong.jpeg', this)">
-            <i class="fa-regular fa-heart"></i></span>
-        <img src="Gambar/gohyong.jpeg" alt="Gohyong">
+            <i class="fa-regular fa-heart"></i>
+        </span>
+        <img src="Gambar/gohyong.jpeg" alt="Gohyong"/>
         <h3>Gohyong</h3>
         <div class="rating">⭐⭐⭐⭐⭐</div>
-        <p>Gohyong goreng renyah dengan isian daging cincang dan rempah.</p>
-        <p><strong>Harga: Rp 25.000</strong></p>
-        <button onclick="addToCart('Gohyong', 25000)"><i class="fa-solid fa-cart-plus"></i> Tambah ke Keranjang</button>
+        <p><strong>Rp 25.000</strong></p>
+        <button onclick="addToCart('Gohyong', 25000)">Tambah ke Keranjang</button>
     </div>
 </section>
 
@@ -219,78 +202,13 @@
     <p>Total: Rp <span id="total-price">0</span></p>
     <button id="checkout-btn" onclick="checkout()">🔄 Proses Pembayaran</button>
 </section>
-<script>
-    let cart = {};
-
-    function addToCart(item, price) {
-        if (cart[item]) {
-            cart[item].quantity++;
-        } else {
-            cart[item] = { price, quantity: 1 };
-        }
-        updateCart();
-    }
-
-    function updateCart() {
-        const cartList = document.getElementById("cart-list");
-        const totalPrice = document.getElementById("total-price");
-        cartList.innerHTML = "";
-        let total = 0;
-
-        for (let item in cart) {
-            const { price, quantity } = cart[item];
-            total += price * quantity;
-            cartList.innerHTML += 
-                <li>${item} - Rp ${price} x ${quantity} 
-                    <span class="quantity">
-                        <button onclick="decreaseItem('${item}')">-</button>
-                        <button onclick="addToCart('${item}', ${price})">+</button>
-                    </span>
-                </li>;
-        }
-        totalPrice.innerText = total;
-    }
-
-    function decreaseItem(item) {
-        if (cart[item].quantity > 1) {
-            cart[item].quantity--;
-        } else {
-            delete cart[item];
-        }
-        updateCart();
-    }
-
-    function checkout() {
-        alert("Terima kasih telah berbelanja!");
-    }
-</script>
 
 <script>
-    function checkout() {
-        let username = localStorage.getItem("username");
-        if (!username) {
-            alert("Silakan login terlebih dahulu!");
-            return;
-        }
-
-        let orders = JSON.parse(localStorage.getItem("orders")) || [];
-        let orderItems = Object.keys(cart).map(item => ${item} x ${cart[item].quantity}).join(", ");
-        let total = Object.values(cart).reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-        orders.push({ username, items: orderItems, total });
-        localStorage.setItem("orders", JSON.stringify(orders));
-
-        alert("Pesanan berhasil! Terima kasih telah berbelanja.");
-        localStorage.removeItem("cart"); // Reset keranjang
-        location.reload();
-    }
-</script>
-<script>
+    // Wishlist
     let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
     function toggleWishlist(name, image, element) {
-        let index = wishlist.findIndex(item => item.name === name);
-
+        const index = wishlist.findIndex(item => item.name === name);
         if (index === -1) {
             wishlist.push({ name, image });
             element.classList.add("active");
@@ -298,11 +216,103 @@
             wishlist.splice(index, 1);
             element.classList.remove("active");
         }
-
         localStorage.setItem("wishlist", JSON.stringify(wishlist));
     }
 
+    // Cart
+    function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem("keranjang")) || [];
+
+    const index = cart.findIndex(item => item.name === name);
+
+    if (index !== -1) {
+        cart[index].quantity++;
+    } else {
+        cart.push({
+            name,
+            price,
+            quantity: 1,
+            image: `Gambar/${name.toLowerCase()}.jpg`
+        });
+    }
+
+    localStorage.setItem("keranjang", JSON.stringify(cart));
+    alert(`${name} ditambahkan ke keranjang!`);
+}
+
+    function updateCartDisplay() {
+        let cart = JSON.parse(localStorage.getItem("keranjang")) || [];
+        let cartList = document.getElementById("cart-list");
+        let totalPrice = document.getElementById("total-price");
+
+        cartList.innerHTML = "";
+        let total = 0;
+
+        cart.forEach((item, i) => {
+            total += item.price * item.quantity;
+            cartList.innerHTML += `
+                <li>
+                    ${item.name} - Rp ${item.price} x ${item.quantity}
+                    <span class="quantity">
+                        <button onclick="decreaseItem(${i})">-</button>
+                        <button onclick="increaseItem(${i})">+</button>
+                    </span>
+                </li>`;
+        });
+
+        totalPrice.textContent = total;
+    }
+
+    function decreaseItem(index) {
+        let cart = JSON.parse(localStorage.getItem("keranjang")) || [];
+        if (cart[index].quantity > 1) {
+            cart[index].quantity--;
+        } else {
+            cart.splice(index, 1);
+        }
+        localStorage.setItem("keranjang", JSON.stringify(cart));
+        updateCartDisplay();
+    }
+
+    function increaseItem(index) {
+        let cart = JSON.parse(localStorage.getItem("keranjang")) || [];
+        cart[index].quantity++;
+        localStorage.setItem("keranjang", JSON.stringify(cart));
+        updateCartDisplay();
+    }
+
+    function checkout() {
+        let username = localStorage.getItem("username");
+        if (!username) {
+            alert("Silakan login terlebih dahulu!");
+            return;
+        }
+
+        let cart = JSON.parse(localStorage.getItem("keranjang")) || [];
+        if (cart.length === 0) {
+            alert("Keranjang kosong!");
+            return;
+        }
+
+        let orders = JSON.parse(localStorage.getItem("orders")) || [];
+        let orderItems = cart.map(item => `${item.name} x ${item.quantity}`).join(", ");
+        let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+        // Simpan transaksi
+        orders.push({ username, items: orderItems, total });
+        localStorage.setItem("orders", JSON.stringify(orders));
+
+        alert("Pesanan berhasil! Anda akan diarahkan ke halaman transaksi.");
+        localStorage.removeItem("keranjang");
+        updateCartDisplay();
+
+        // Redirect ke halaman transaksi
+        window.location.href = "Transaksi.html";
+    }
+    // On load
     document.addEventListener("DOMContentLoaded", () => {
+        updateCartDisplay();
+
         document.querySelectorAll(".wishlist").forEach(icon => {
             let productName = icon.parentElement.querySelector("h3").innerText;
             if (wishlist.some(item => item.name === productName)) {
@@ -311,5 +321,6 @@
         });
     });
 </script>
+
 </body>
 </html>
