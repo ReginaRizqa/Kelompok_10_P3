@@ -1,25 +1,22 @@
 <?php include 'partials/header.php'; include 'config/conn.php';
 
-if ($_SESSION['user']['role'] !== 'admin') {
-    echo "<div class='alert alert-danger'>Akses ditolak.</div>";
-    include 'partials/footer.php';
-    exit;
-}
-
-$transaksi = $pdo->query("SELECT t.*, u.nama FROM transactions t JOIN users u ON t.user_id = u.id ORDER BY t.created_at DESC")->fetchAll(PDO::FETCH_ASSOC);
+$user_id = $_SESSION['user']['id'];
+$riwayat = $pdo->prepare("SELECT * FROM transactions WHERE user_id = ? ORDER BY created_at DESC");
+$riwayat->execute([$user_id]);
+$transaksi = $riwayat->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<h4>Riwayat Penjualan</h4>
+<h4>Riwayat Pembelian</h4>
 <?php if (empty($transaksi)): ?>
-    <div class="alert alert-info">Belum ada transaksi penjualan.</div>
+    <div class="alert alert-info">Belum ada transaksi.</div>
 <?php else: ?>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Pelanggan</th>
+                <th>Nama</th>
                 <th>Total</th>
-                <th>Status</th>
                 <th>Metode</th>
+                <th>Status</th>
                 <th>Tanggal</th>
             </tr>
         </thead>
@@ -28,8 +25,8 @@ $transaksi = $pdo->query("SELECT t.*, u.nama FROM transactions t JOIN users u ON
                 <tr>
                     <td><?= htmlspecialchars($t['nama_lengkap']) ?></td>
                     <td>Rp <?= number_format($t['total_harga'], 0, ',', '.') ?></td>
-                    <td><?= ucfirst($t['status']) ?></td>
                     <td><?= ucfirst($t['metode_pembayaran']) ?></td>
+                    <td><?= ucfirst($t['status']) ?></td>
                     <td><?= $t['created_at'] ?></td>
                 </tr>
             <?php endforeach; ?>
