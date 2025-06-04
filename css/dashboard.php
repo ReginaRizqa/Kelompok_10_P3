@@ -1,55 +1,82 @@
-<?php
-require_once 'includes/db.php';
+<?php include 'partials/header.php'; include 'config/conn.php';
 
-// Total Penjualan
-$totalPenjualan = $pdo->query("SELECT SUM(total_harga) FROM transactions")->fetchColumn();
+// Hitung total penjualan
+$totalPenjualan = $pdo->query("SELECT COALESCE(SUM(total_harga), 0) FROM transactions WHERE status = 'selesai'")->fetchColumn();
 
-// Pesanan Hari Ini
-$hariIni = date('Y-m-d');
-$pesananHariIni = $pdo->prepare("SELECT COUNT(*) FROM transactions WHERE DATE(created_at) = ?");
-$pesananHariIni->execute([$hariIni]);
-$jumlahPesananHariIni = $pesananHariIni->fetchColumn();
+// Pesanan hari ini
+$pesananHariIni = $pdo->prepare("SELECT COUNT(*) FROM transactions WHERE DATE(created_at) = CURDATE()");
+$pesananHariIni->execute();
+$jumlahPesanan = $pesananHariIni->fetchColumn();
 
-// Jumlah Pelanggan
+// Jumlah pelanggan
 $jumlahPelanggan = $pdo->query("SELECT COUNT(*) FROM users WHERE role = 'pelanggan'")->fetchColumn();
 ?>
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard Admin</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-<div class="container py-4">
-    <h1 class="mb-4 text-danger">Dashboard Admin</h1>
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="card text-white bg-danger shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Total Penjualan</h5>
-                    <p class="card-text fs-4">Rp <?= number_format($totalPenjualan, 0, ',', '.') ?></p>
-                </div>
-            </div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card shadow-sm text-center p-3">
+            <h5 class="text-muted">Total Penjualan</h5>
+            <h3 class="text-danger">Rp <?= number_format($totalPenjualan, 0, ',', '.') ?></h3>
         </div>
-        <div class="col-md-4">
-            <div class="card text-white bg-warning shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Pesanan Hari Ini</h5>
-                    <p class="card-text fs-4"><?= $jumlahPesananHariIni ?> Pesanan</p>
-                </div>
-            </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm text-center p-3">
+            <h5 class="text-muted">Pesanan Hari Ini</h5>
+            <h3 class="text-danger"><?= $jumlahPesanan ?></h3>
         </div>
-        <div class="col-md-4">
-            <div class="card text-white bg-secondary shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Jumlah Pelanggan</h5>
-                    <p class="card-text fs-4"><?= $jumlahPelanggan ?> Orang</p>
-                </div>
-            </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm text-center p-3">
+            <h5 class="text-muted">Jumlah Pelanggan</h5>
+            <h3 class="text-danger"><?= $jumlahPelanggan ?></h3>
         </div>
     </div>
 </div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <hr>
+<h4>Daftar Transaksi</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Nama</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Tanggal</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $stmt = $pdo->query("SELECT * FROM transactions ORDER BY created_at DESC");
+        $transaksi = $stmt->fetchAll();
+
+        foreach ($transaksi as $t):
+        ?>
+        <tr>
+            <td><?= htmlspecialchars($t['nama_lengkap']) ?></td>
+            <td>Rp <?= number_format($t['total_harga'], 0, ',', '.') ?></td>
+            <td><?= ucfirst($t['status']) ?></td>
+            <td><?= $t['created_at'] ?></td>
+            <td>
+                <?php if ($t['status'] === 'pending'): ?>
+                    <a href="verifikasi_pembayaran.php?id=<?= $t['id'] ?>" class="btn btn-sm btn-success" onclick="return confirm('Verifikasi transaksi ini?')">Verifikasi</a>
+                <?php else: ?>
+                    <span class="badge bg-success">Selesai</span>
+                <?php endif; ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
 </body>
 </html>
+
+<?php include 'partials/footer.php'; ?>
