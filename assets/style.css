@@ -1,0 +1,38 @@
+body {
+    background-color: #fff;
+    color: #333;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h1, h2, .text-danger {
+    color: #d32f2f;
+}
+
+.card-title, .btn {
+    font-weight: bold;
+}
+
+.btn-danger, .bg-danger {
+    background-color: #d32f2f !important;
+    border-color: #d32f2f;
+    color: white;
+}
+
+.btn-outline-danger {
+    border-color: #d32f2f;
+    color: #d32f2f;
+}
+
+.btn-outline-danger:hover {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.card {
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+.card:hover {
+    transform: scale(1.02);
+}
