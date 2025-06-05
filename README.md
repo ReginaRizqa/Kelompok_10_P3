@@ -38,6 +38,6 @@ Kami berharap repository ini dapat membantu dalam memahami proyek kami secara ke
 ## 🚀 Cara Menggunakan
 1. Clone repository ini ke lokal:
    ```bash
-   git clone https://github.com/SabillaAlia/Kelompok10BasisData
+   git clone https://github.com/ReginaRizqa/Kelompok_10_P3
 2. Buka file dokumen di folder Dokumen.
 3. Ikuti manual penggunaan sistem untuk informasi lebih lanjut.
