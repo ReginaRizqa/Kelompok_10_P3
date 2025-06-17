@@ -29,7 +29,24 @@ $transaksi = $pdo->query("SELECT t.*, u.nama FROM transactions t JOIN users u ON
                     <td><?= htmlspecialchars($t['nama_lengkap']) ?></td>
                     <td>Rp <?= number_format($t['total_harga'], 0, ',', '.') ?></td>
                     <td><?= ucfirst($t['status']) ?></td>
-                    <td><?= ucfirst($t['metode_pembayaran']) ?></td>
+                    <td>
+    <?php
+    switch ($t['metode_pembayaran']) {
+        case 'transfer':
+            echo 'Transfer';
+            break;
+        case 'qris':
+            echo 'Qris';
+            break;
+        case 'cod':
+            echo 'Cod';
+            break;
+        default:
+            echo ucfirst($t['metode_pembayaran']);
+    }
+    ?>
+</td>
+
                     <td><?= $t['created_at'] ?></td>
                 </tr>
             <?php endforeach; ?>
