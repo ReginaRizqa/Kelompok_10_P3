@@ -25,7 +25,24 @@ $transaksi = $riwayat->fetchAll(PDO::FETCH_ASSOC);
                 <tr>
                     <td><?= htmlspecialchars($t['nama_lengkap']) ?></td>
                     <td>Rp <?= number_format($t['total_harga'], 0, ',', '.') ?></td>
-                    <td><?= ucfirst($t['metode_pembayaran']) ?></td>
+                   <td>
+    <?php
+    switch ($t['metode_pembayaran']) {
+        case 'transfer':
+            echo 'Transfer';
+            break;
+        case 'qris':
+            echo 'E-wallet';
+            break;
+        case 'cod':
+            echo 'Cod';
+            break;
+        default:
+            echo ucfirst($t['metode_pembayaran']);
+    }
+    ?>
+</td>
+
                     <td><?= ucfirst($t['status']) ?></td>
                     <td><?= $t['created_at'] ?></td>
                 </tr>
