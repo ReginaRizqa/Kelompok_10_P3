@@ -9,17 +9,17 @@ $user = $_SESSION['user'];
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Wonton & Gohyong</title>
+    <title>Wonton & Gohyong </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { background-color: #fff5f5; }
-        .navbar, .btn-danger, .text-danger { background-color: #ff4d4d !important; color: white !important; }
+        .navbar, .btn-danger, .text-danger { background-color:rgba(156, 18, 18, 0.91) !important; color: white !important; }
     </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
-    <a class="navbar-brand text-white" href="dashboard.php">Wonton & Gohyong</a>
+    <a class="navbar-brand text-white" href="dashboard.php">GoWon</a>
     <div>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link text-white" href="menu.php">Menu</a></li>
