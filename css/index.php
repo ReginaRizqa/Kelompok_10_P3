@@ -52,8 +52,9 @@
 
     <div class="text-center mb-5">
         <a href="menu.php" class="btn btn-danger btn-lg">Lihat Menu Kami</a>
-        <a href="register.php" class="btn btn-outline-danger btn-lg">Daftar Sekarang</a>
+        <a href="login.php" class="btn btn-outline-danger btn-lg">Daftar Sekarang</a>
     </div>
 </div>
 
 <?php include 'partials/footer.php'; ?>
+
